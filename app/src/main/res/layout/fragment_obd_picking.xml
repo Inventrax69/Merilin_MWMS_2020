@@ -741,7 +741,7 @@
             android:text="@string/selectResson"
             android:textStyle="normal" />
 
-        <com.inventrax.falconsl_new.searchableSpinner.SearchableSpinner
+        <com.inventrax.merlinwms.searchableSpinner.SearchableSpinner
             android:id="@+id/spinnerSelectReason"
             style="@style/Base.Widget.AppCompat.Spinner.Underlined"
             android:layout_width="match_parent"

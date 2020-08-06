@@ -26,13 +26,13 @@
             android:layout_marginTop="15dp"
             android:textStyle="normal"/>
 
-        <com.inventrax.falconsl_new.searchableSpinner.SearchableSpinner
+        <com.inventrax.merlinwms.searchableSpinner.SearchableSpinner
             android:id="@+id/spinnerSelectLoadList"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             style="@style/Base.Widget.AppCompat.Spinner.Underlined"
             android:layout_below="@+id/tvSelectLoadSheet">
-        </com.inventrax.falconsl_new.searchableSpinner.SearchableSpinner>
+        </com.inventrax.merlinwms.searchableSpinner.SearchableSpinner>
 
         <Button
             android:id="@+id/btnCreateNew"

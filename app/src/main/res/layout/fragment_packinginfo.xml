@@ -60,23 +60,23 @@
                 android:weightSum="2">
 
 
-                <com.inventrax.falconsl_new.searchableSpinner.SearchableSpinner
+                <com.inventrax.merlinwms.searchableSpinner.SearchableSpinner
                     android:id="@+id/spinnerSelectTenant"
                     style="@style/Widget.AppCompat.Spinner.Underlined"
                     android:layout_width="0dp"
                     android:layout_height="35dp"
                     android:layout_weight="1">
 
-                </com.inventrax.falconsl_new.searchableSpinner.SearchableSpinner>
+                </com.inventrax.merlinwms.searchableSpinner.SearchableSpinner>
 
-                <com.inventrax.falconsl_new.searchableSpinner.SearchableSpinner
+                <com.inventrax.merlinwms.searchableSpinner.SearchableSpinner
                     android:id="@+id/spinnerSelectWH"
                     style="@style/Widget.AppCompat.Spinner.Underlined"
                     android:layout_width="0dp"
                     android:layout_height="35dp"
                     android:layout_weight="1">
 
-                </com.inventrax.falconsl_new.searchableSpinner.SearchableSpinner>
+                </com.inventrax.merlinwms.searchableSpinner.SearchableSpinner>
 
 
             </LinearLayout>

@@ -777,12 +777,12 @@
             android:text="@string/selectResson"
             android:textStyle="normal" />
 
-        <com.inventrax.falconsl_new.searchableSpinner.SearchableSpinner
+        <com.inventrax.merlinwms.searchableSpinner.SearchableSpinner
             android:id="@+id/spinnerSelectSkip"
             style="@style/Base.Widget.AppCompat.Spinner.Underlined"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_below="@+id/tvPicklist"></com.inventrax.falconsl_new.searchableSpinner.SearchableSpinner>
+            android:layout_below="@+id/tvPicklist"></com.inventrax.merlinwms.searchableSpinner.SearchableSpinner>
 
         <Button
             android:id="@+id/btnskip"

@@ -30,7 +30,7 @@
 
         </TextView>
 
-        <com.inventrax.falconsl_new.searchableSpinner.SearchableSpinner
+        <com.inventrax.merlinwms.searchableSpinner.SearchableSpinner
             android:id="@+id/spinnerSelectDivision"
             style="@style/Widget.AppCompat.Spinner.Underlined"
             android:layout_width="110dp"
@@ -39,7 +39,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true">
 
-        </com.inventrax.falconsl_new.searchableSpinner.SearchableSpinner>
+        </com.inventrax.merlinwms.searchableSpinner.SearchableSpinner>
 
 
         <ImageView
