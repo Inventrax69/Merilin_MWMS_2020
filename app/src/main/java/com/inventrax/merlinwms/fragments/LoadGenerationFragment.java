@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -488,6 +490,10 @@ public class LoadGenerationFragment extends Fragment implements View.OnClickList
     //Assigning scanned value to the respective fields
     public void ProcessScannedinfo(String scannedData) {
 
+        if(((DrawerLayout) getActivity().findViewById(R.id.drawer_layout)).isDrawerOpen(GravityCompat.START)){
+            return;
+        }
+
         if (scannedData != null) {
 
             if (ProgressDialogUtils.isProgressActive() || Common.isPopupActive()) {
@@ -840,6 +846,7 @@ public class LoadGenerationFragment extends Fragment implements View.OnClickList
             OutbountDTO outbountDTO = new OutbountDTO();
             outbountDTO.setUserId(userId);
             outbountDTO.setTenatID(userId);
+            outbountDTO.setAccountID(accountId);
             outbountDTO.setVehicle(lblVehicleNo.getText().toString());
             outbountDTO.setSONumber(SONumber);
             outbountDTO.setDriverNo(lblDrNo.getText().toString());

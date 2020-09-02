@@ -10,17 +10,17 @@ android {
         applicationId "com.inventrax.merlinwms"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 12
-        versionName "1.9.3"
+        versionCode 1
+        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
     }
     signingConfigs {
         release {
-            storeFile file('shipper.jks')
+            storeFile file('merlin.jks')
             storePassword '123456'
-            keyAlias 'shipper'
+            keyAlias 'merlin'
             keyPassword '123456'
         }
     }

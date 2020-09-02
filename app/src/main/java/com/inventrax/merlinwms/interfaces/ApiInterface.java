@@ -10,7 +10,6 @@ import retrofit2.http.POST;
 
 public interface ApiInterface {
 
-
     // Login
     @POST("Login/UserLogin")
     Call<String> UserLogin(@Body WMSCoreMessage oRequest);

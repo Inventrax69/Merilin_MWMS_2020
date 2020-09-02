@@ -38,6 +38,8 @@ import com.inventrax.merlinwms.fragments.LoadingFragment;
 import com.inventrax.merlinwms.fragments.NewLoadSheetFragment;
 import com.inventrax.merlinwms.fragments.OBDPickingDetailsFragment;
 import com.inventrax.merlinwms.fragments.OBDPickingHeaderFragment;
+import com.inventrax.merlinwms.fragments.OutboundRevertDetailsFragment;
+import com.inventrax.merlinwms.fragments.OutboundRevertHeaderFragment;
 import com.inventrax.merlinwms.fragments.PackingFragment;
 import com.inventrax.merlinwms.fragments.PackingInfoFragment;
 import com.inventrax.merlinwms.fragments.PalletTransfersFragment;
@@ -221,6 +223,12 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
                 if (fragment != null && fragment.isVisible() && fragment instanceof NewLoadSheetFragment) {
                     ((NewLoadSheetFragment) fragment).myScannedData(MainActivity.this, ScannedData);
                 }
+                if (fragment != null && fragment.isVisible() && fragment instanceof OutboundRevertHeaderFragment) {
+                    ((OutboundRevertHeaderFragment) fragment).myScannedData(MainActivity.this, ScannedData);
+                }
+                if (fragment != null && fragment.isVisible() && fragment instanceof OutboundRevertDetailsFragment) {
+                    ((OutboundRevertDetailsFragment) fragment).myScannedData(MainActivity.this, ScannedData);
+                }
             }
         }
 
@@ -265,6 +273,8 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
             drawerFragment = (DrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
             drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
             drawerFragment.setDrawerListener(this);
+
+
 
 
             sharedPreferencesUtils = new SharedPreferencesUtils("LoginActivity", getApplicationContext());

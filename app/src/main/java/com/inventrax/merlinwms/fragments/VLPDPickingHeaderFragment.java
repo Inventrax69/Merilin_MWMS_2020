@@ -110,14 +110,11 @@ public class VLPDPickingHeaderFragment extends Fragment implements View.OnClickL
                 break;
 
             case R.id.btnGo:
-
                 if (pickRefNo.equalsIgnoreCase("")) {
                     common.showUserDefinedAlertType(errorMessages.EMC_0035, getActivity(), getContext(), "Warning");
                 } else {
                     getPickListdetails();
-
                 }
-
 
                 break;
         }

@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -485,6 +487,10 @@ public class CycleCountDetailsFragment extends Fragment implements View.OnClickL
 
     //Assigning scanned value to the respective fields
     public void ProcessScannedinfo(String scannedData) {
+
+        if(((DrawerLayout) getActivity().findViewById(R.id.drawer_layout)).isDrawerOpen(GravityCompat.START)){
+            return;
+        }
 
         if (ProgressDialogUtils.isProgressActive() || Common.isPopupActive()) {
             common.showUserDefinedAlertType(errorMessages.EMC_082, getActivity(), getContext(), "Warning");

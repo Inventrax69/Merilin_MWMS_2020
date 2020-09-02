@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
@@ -407,7 +409,6 @@ public class NewLoadSheetFragment extends Fragment implements View.OnClickListen
                                             lblCustmerName.setText(outbountDTOS.get(0).getCustomerName());
                                             lblCustomerCode.setText(outbountDTOS.get(0).getCustomerCode());
                                             lblCustomerAddress.setText(outbountDTOS.get(0).getCustomerAddress());
-
                                             GetSOCountUnderLoadSheet();
                                         }
 
@@ -463,6 +464,11 @@ public class NewLoadSheetFragment extends Fragment implements View.OnClickListen
 
     //Assigning scanned value to the respective fields
     public void ProcessScannedinfo(String scannedData) {
+
+        if(((DrawerLayout) getActivity().findViewById(R.id.drawer_layout)).isDrawerOpen(GravityCompat.START)){
+            return;
+        }
+
         if (scannedData != null) {
 
             if (ProgressDialogUtils.isProgressActive() || Common.isPopupActive()) {
@@ -497,6 +503,7 @@ public class NewLoadSheetFragment extends Fragment implements View.OnClickListen
             message = common.SetAuthentication(EndpointConstants.Outbound, getContext());
             OutbountDTO outbountDTO = new OutbountDTO();
             outbountDTO.setUserId(userId);
+            outbountDTO.setAccountID(accountId);
             outbountDTO.setvLPDNumber(lblLoadSheetNo.getText().toString());
             message.setEntityObject(outbountDTO);
 

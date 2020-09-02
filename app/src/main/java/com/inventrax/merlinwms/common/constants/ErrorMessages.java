@@ -143,4 +143,6 @@ public class ErrorMessages {
 
     public String EMC_082 = "Please wait previous scan is in progress";
 
+    public String EMC_083 = "Please close side menu";
+
 }

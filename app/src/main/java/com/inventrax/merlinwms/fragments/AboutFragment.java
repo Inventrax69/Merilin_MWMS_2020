@@ -47,7 +47,6 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onStart() {
         super.onStart();
-
     }
 
     @Override
@@ -60,7 +59,6 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
         try {
 
             txtVersion = (TextView) rootView.findViewById(R.id.txtVersion);
-
 
            // txtVersion.setText(AndroidUtils.getVersionName().toString());
 
@@ -156,9 +154,7 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=VrrFNQ0QCp8")));
 
                 } catch (Exception ex) {
-
                     DialogUtils.showAlertDialog(getActivity(), "Error while opening youtube");
-
                 }
 
             }
