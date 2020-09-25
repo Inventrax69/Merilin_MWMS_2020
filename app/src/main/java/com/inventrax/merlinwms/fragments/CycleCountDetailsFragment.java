@@ -889,10 +889,7 @@ public class CycleCountDetailsFragment extends Fragment implements View.OnClickL
 
                                 WMSExceptionMessage owmsExceptionMessage = null;
                                 for (int i = 0; i < _lExceptions.size(); i++) {
-
                                     owmsExceptionMessage = new WMSExceptionMessage(_lExceptions.get(i).entrySet());
-
-
                                 }
 
                                 cvScanSKU.setCardBackgroundColor(getResources().getColor(R.color.white));
@@ -1001,7 +998,6 @@ public class CycleCountDetailsFragment extends Fragment implements View.OnClickL
             message = common.SetAuthentication(EndpointConstants.CycleCount, getActivity());
 
             final CycleCountDTO cycleCountDTO = new CycleCountDTO();
-
             cycleCountDTO.setUserId(userId);
             cycleCountDTO.setAccountID(accountId);
             cycleCountDTO.setWarehouseID(warehouseId);
@@ -1019,7 +1015,6 @@ public class CycleCountDetailsFragment extends Fragment implements View.OnClickL
             //cycleCountDTO.setCount(tvCount.getText().toString());
             cycleCountDTO.setMRP(etCCMRP.getText().toString());
             cycleCountDTO.setStorageLocation(storageLoc);
-
             message.setEntityObject(cycleCountDTO);
 
 
@@ -1064,10 +1059,7 @@ public class CycleCountDetailsFragment extends Fragment implements View.OnClickL
 
                                 WMSExceptionMessage owmsExceptionMessage = null;
                                 for (int i = 0; i < _lExceptions.size(); i++) {
-
                                     owmsExceptionMessage = new WMSExceptionMessage(_lExceptions.get(i).entrySet());
-
-
                                 }
 
                                 cvScanSKU.setCardBackgroundColor(getResources().getColor(R.color.white));
@@ -1294,6 +1286,7 @@ public class CycleCountDetailsFragment extends Fragment implements View.OnClickL
     public void releaseCycleCountLocation() {
 
         try {
+
             WMSCoreMessage message = new WMSCoreMessage();
             message = common.SetAuthentication(EndpointConstants.CycleCount, getActivity());
             final CycleCountDTO cycleCountDTO = new CycleCountDTO();
@@ -1811,6 +1804,7 @@ public class CycleCountDetailsFragment extends Fragment implements View.OnClickL
     }
 
     public void ValiDateMaterial(final String scannedData) {
+
         try {
 
             WMSCoreMessage message = new WMSCoreMessage();
@@ -1825,7 +1819,6 @@ public class CycleCountDetailsFragment extends Fragment implements View.OnClickL
             //inboundDTO.setIsOutbound("0");
             message.setEntityObject(scanDTO);
 
-            Log.v("ABCDE", new Gson().toJson(message));
 
             Call<String> call = null;
             ApiInterface apiService = RestService.getClient().create(ApiInterface.class);
@@ -1975,7 +1968,8 @@ public class CycleCountDetailsFragment extends Fragment implements View.OnClickL
             scanDTO.setTenantID(String.valueOf(tenantId));
             scanDTO.setWarehouseID(String.valueOf(warehouseId));
             scanDTO.setScanInput(scannedData);
-            //   scanDTO.setInboundID(inboundId);
+            scanDTO.setCycleCount(true);
+            // scanDTO.setInboundID(inboundId);
             // inboundDTO.setIsOutbound("0");
             message.setEntityObject(scanDTO);
 
@@ -2018,7 +2012,6 @@ public class CycleCountDetailsFragment extends Fragment implements View.OnClickL
 
                             WMSExceptionMessage owmsExceptionMessage = null;
                             for (int i = 0; i < _lExceptions.size(); i++) {
-
                                 owmsExceptionMessage = new WMSExceptionMessage(_lExceptions.get(i).entrySet());
                             }
 
@@ -2083,6 +2076,7 @@ public class CycleCountDetailsFragment extends Fragment implements View.OnClickL
     }
 
     public void ValidatePallet(final String scannedData) {
+
         try {
 
             WMSCoreMessage message = new WMSCoreMessage();
@@ -2136,7 +2130,6 @@ public class CycleCountDetailsFragment extends Fragment implements View.OnClickL
 
                             WMSExceptionMessage owmsExceptionMessage = null;
                             for (int i = 0; i < _lExceptions.size(); i++) {
-
                                 owmsExceptionMessage = new WMSExceptionMessage(_lExceptions.get(i).entrySet());
                             }
 
@@ -2145,12 +2138,15 @@ public class CycleCountDetailsFragment extends Fragment implements View.OnClickL
                             ivScanContainer.setImageResource(R.drawable.invalid_cross);
                             ProgressDialogUtils.closeProgressDialog();
                             common.showAlertType(owmsExceptionMessage, getActivity(), getContext());
+
                         } else {
+
                             LinkedTreeMap<?, ?> _lResult = new LinkedTreeMap<>();
                             _lResult = (LinkedTreeMap<?, ?>) core.getEntityObject();
 
                             ScanDTO scanDTO1 = new ScanDTO(_lResult.entrySet());
                             ProgressDialogUtils.closeProgressDialog();
+                            
                             if (scanDTO1 != null) {
                                 if (scanDTO1.getScanResult()) {
                                     isPalletScanned = true;

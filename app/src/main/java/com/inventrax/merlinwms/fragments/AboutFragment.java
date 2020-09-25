@@ -38,10 +38,9 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         rootView = inflater.inflate(R.layout.fragment_about, container, false);
-
         loadFormControls();
-
         return rootView;
+
     }
 
     @Override
@@ -120,6 +119,7 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
                     //updateServiceUtils.checkUpdate();
 
                     ProgressDialogUtils.closeProgressDialog();
+
                 } catch (Exception ex) {
 
                     ProgressDialogUtils.closeProgressDialog();

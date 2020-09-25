@@ -966,7 +966,6 @@ public class PackingFragment extends Fragment implements View.OnClickListener, B
                 }
                 ProgressDialogUtils.closeProgressDialog();
                 DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0002);
-
             }
             try {
                 //Getting response from the method
@@ -1228,6 +1227,7 @@ public class PackingFragment extends Fragment implements View.OnClickListener, B
                 ProgressDialogUtils.closeProgressDialog();
                 DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0001);
             }
+
         } catch (Exception ex) {
             try {
                 exceptionLoggerUtils.createExceptionLog(ex.toString(), classCode, "001_04", getActivity());

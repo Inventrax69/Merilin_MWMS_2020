@@ -20,19 +20,26 @@ public class ScanDTO {
     @SerializedName("TenantID")
     public String TenantID ;
     @SerializedName("SkuCode")
-    public String SkuCode ;
+    public String SkuCode;
+
     @SerializedName("Batch")
     public String Batch ;
+
     @SerializedName("SerialNumber")
-    public String SerialNumber ;
+    public String SerialNumber;
+
     @SerializedName("ExpDate")
     public String ExpDate ;
+
     @SerializedName("MfgDate")
     public String MfgDate;
+
     @SerializedName("PrjRef")
     public String PrjRef;
+
     @SerializedName("KitID")
     public String KitID;
+
     @SerializedName("LineNumber")
     public String LineNumber;
 
@@ -51,12 +58,11 @@ public class ScanDTO {
     @SerializedName("ObdNumber")
     public String ObdNumber;
 
-
     @SerializedName("VlpdNumber")
     public String VlpdNumber;
 
-
-
+    @SerializedName("IsCycleCount")
+    public Boolean IsCycleCount;
 
     @SerializedName("SupplierInvoiceDetailsID")
     public String SupplierInvoiceDetailsID;
@@ -169,6 +175,11 @@ public class ScanDTO {
                 case "SupplierInvoiceDetailsID":
                     if (entry.getValue() != null) {
                         this.setSupplierInvoiceDetailsID(entry.getValue().toString());
+                    }
+                    break;
+                case "IsCycleCount":
+                    if (entry.getValue() != null) {
+                        this.setCycleCount(Boolean.parseBoolean(entry.getValue().toString()));
                     }
                     break;
             }
@@ -340,5 +351,12 @@ public class ScanDTO {
         SupplierInvoiceDetailsID = supplierInvoiceDetailsID;
     }
 
+    public Boolean getCycleCount() {
+        return IsCycleCount;
+    }
+
+    public void setCycleCount(Boolean cycleCount) {
+        IsCycleCount = cycleCount;
+    }
 
 }

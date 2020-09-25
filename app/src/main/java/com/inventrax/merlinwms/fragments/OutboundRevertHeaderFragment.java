@@ -82,14 +82,11 @@ public class OutboundRevertHeaderFragment extends Fragment implements View.OnCli
     ImageView ivScanSONumber;
     boolean isValidSO=false;
 
-    public OutboundRevertHeaderFragment() {
-
-    }
+    public OutboundRevertHeaderFragment() { }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         rootView = inflater.inflate(R.layout.fragment_outboundrevert_header, container, false);
         loadFormControls();
         return rootView;
@@ -131,8 +128,7 @@ public class OutboundRevertHeaderFragment extends Fragment implements View.OnCli
         this.filter.addAction("sw.reader.decode.complete");
         getActivity().registerReceiver(this.myDataReceiver, this.filter);
 
-
-        //For Honeywell
+        // For Honeywell
         AidcManager.create(getActivity(), new AidcManager.CreatedCallback() {
 
             @Override
@@ -143,7 +139,6 @@ public class OutboundRevertHeaderFragment extends Fragment implements View.OnCli
                 try {
                     barcodeReader.claim();
                     HoneyWellBarcodeListeners();
-
                 } catch (ScannerUnavailableException e) {
                     e.printStackTrace();
                 }
@@ -319,14 +314,16 @@ public class OutboundRevertHeaderFragment extends Fragment implements View.OnCli
     }
 
 
-/*    public void getPickListdetails() {
+    /*
+    public void getPickListdetails() {
         Bundle bundle = new Bundle();
         bundle.putString("pickOBDno", pickRefNo);
         bundle.putString("pickobdId", pickobdId);
         OutboundRevertDetailsFragment outboundRevertDetailsFragment = new OutboundRevertDetailsFragment();
         outboundRevertDetailsFragment.setArguments(bundle);
         FragmentUtils.replaceFragmentWithBackStack(getActivity(), R.id.container_body, outboundRevertDetailsFragment);
-    }*/
+    }
+    */
 
     public void GetRevertSOOBDInfo(final String scannedData) {
 

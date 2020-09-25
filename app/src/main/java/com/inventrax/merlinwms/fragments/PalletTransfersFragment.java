@@ -234,8 +234,10 @@ public class PalletTransfersFragment extends Fragment implements View.OnClickLis
         });
 
 
-        // To get tenants
-        getTenants();
+/*        // To get tenants
+        getTenants();*/
+
+        getWarehouse();
 
     }
 
@@ -494,7 +496,10 @@ public class PalletTransfersFragment extends Fragment implements View.OnClickLis
             WMSCoreMessage message = new WMSCoreMessage();
             message = common.SetAuthentication(EndpointConstants.HouseKeepingDTO, getContext());
             HouseKeepingDTO houseKeepingDTO = new HouseKeepingDTO();
+            houseKeepingDTO.setUserId(Userid);
+            houseKeepingDTO.setTenantID(tenantId);
             houseKeepingDTO.setAccountID(accountId);
+            houseKeepingDTO.setWarehouseId(whId);
             message.setEntityObject(houseKeepingDTO);
 
 
@@ -626,6 +631,7 @@ public class PalletTransfersFragment extends Fragment implements View.OnClickLis
             message = common.SetAuthentication(EndpointConstants.HouseKeepingDTO, getContext());
             HouseKeepingDTO houseKeepingDTO = new HouseKeepingDTO();
             houseKeepingDTO.setAccountID(accountId);
+            houseKeepingDTO.setUserId(Userid);
             houseKeepingDTO.setTenantID(tenantId);
             message.setEntityObject(houseKeepingDTO);
 
@@ -760,7 +766,7 @@ public class PalletTransfersFragment extends Fragment implements View.OnClickLis
                 tenantId = oHouseKeeping.getTenantID();   // Te
 
                 // get warehouses of selected tenant
-                getWarehouse();
+              //  getWarehouse();
             }
         }
 
@@ -768,12 +774,10 @@ public class PalletTransfersFragment extends Fragment implements View.OnClickLis
     }
 
     public void getWarehouseId() {
-
         for (HouseKeepingDTO oHouseKeeping : lstWarehouse) {
             if (oHouseKeeping.getWarehouse().equals(selectedWH)) {
-
                 whId = oHouseKeeping.getWarehouseId();    // Warehouse Id of selected warehouse
-
+                getTenants();
             }
         }
     }

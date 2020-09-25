@@ -80,15 +80,11 @@ public class VLPDPickingHeaderFragment extends Fragment implements View.OnClickL
         userId = sp.getString("RefUserId", "");
         accountId = sp.getString("AccountId", "");
 
-
         spinnerSelectPickList = (SearchableSpinner) rootView.findViewById(R.id.spinnerSelectPickList);
         spinnerSelectPickList.setOnItemSelectedListener(this);
 
         btnGo = (Button) rootView.findViewById(R.id.btnGo);
-
         gson = new GsonBuilder().create();
-
-
         btnGo.setOnClickListener(this);
 
         common = new Common();

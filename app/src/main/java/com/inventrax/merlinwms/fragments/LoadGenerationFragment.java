@@ -59,6 +59,7 @@ import com.inventrax.merlinwms.util.SoundUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -127,7 +128,6 @@ public class LoadGenerationFragment extends Fragment implements View.OnClickList
     }
 
     public LoadGenerationFragment() { }
-
 
     @Nullable
     @Override
@@ -246,6 +246,7 @@ public class LoadGenerationFragment extends Fragment implements View.OnClickList
                 } catch (ScannerUnavailableException e) {
                     e.printStackTrace();
                 }
+
             }
         });
 
@@ -312,11 +313,7 @@ public class LoadGenerationFragment extends Fragment implements View.OnClickList
             }
         });
 
-
-
-
     }
-
 
     @Override
     public void onClick(View v) {
@@ -408,8 +405,9 @@ public class LoadGenerationFragment extends Fragment implements View.OnClickList
                         SONumber += outbountDTOS.get(i).getSONumber()+",";
                 }
 
+
                 if(SONumber.isEmpty()){
-                    common.showUserDefinedAlertType("Please scan aleast one SO number", getActivity(), getActivity(), "Warning");
+                    common.showUserDefinedAlertType("Please scan atleast one SO number", getActivity(), getActivity(), "Warning");
                     return;
                 }else{
                     SONumber = SONumber.substring(0, SONumber.length() - 1);
@@ -420,7 +418,6 @@ public class LoadGenerationFragment extends Fragment implements View.OnClickList
 
         }
     }
-
 
     // honeywell
     @Override
@@ -436,14 +433,10 @@ public class LoadGenerationFragment extends Fragment implements View.OnClickList
     }
 
     @Override
-    public void onFailureEvent(BarcodeFailureEvent barcodeFailureEvent) {
-
-    }
+    public void onFailureEvent(BarcodeFailureEvent barcodeFailureEvent) { }
 
     @Override
-    public void onTriggerEvent(TriggerStateChangeEvent triggerStateChangeEvent) {
-
-    }
+    public void onTriggerEvent(TriggerStateChangeEvent triggerStateChangeEvent) { }
 
     //Honeywell Barcode reader Properties
     public void HoneyWellBarcodeListeners() {
@@ -484,8 +477,6 @@ public class LoadGenerationFragment extends Fragment implements View.OnClickList
         }
 
     }
-
-
 
     //Assigning scanned value to the respective fields
     public void ProcessScannedinfo(String scannedData) {
@@ -531,7 +522,6 @@ public class LoadGenerationFragment extends Fragment implements View.OnClickList
 
     }
 
-
     public void ValidateSO(final String scannedData) {
 
         try {
@@ -542,16 +532,16 @@ public class LoadGenerationFragment extends Fragment implements View.OnClickList
             scanDTO.setUserID(userId);
             scanDTO.setAccountID(accountId);
             // scanDTO.setTenantID(String.valueOf(tenantID));
-            //scanDTO.setWarehouseID(String.valueOf(warehouseID));
+            // scanDTO.setWarehouseID(String.valueOf(warehouseID));
             scanDTO.setScanInput(scannedData);
-            //inboundDTO.setIsOutbound("0");
+            // inboundDTO.setIsOutbound("0");
             message.setEntityObject(scanDTO);
 
             Call<String> call = null;
             ApiInterface apiService = RestService.getClient().create(ApiInterface.class);
 
             try {
-                //Checking for Internet Connectivity
+                // Checking for Internet Connectivity
                 // if (NetworkUtils.isInternetAvailable()) {
                 // Calling the Interface method
                 call = apiService.ValidateSO(message);
@@ -666,8 +656,6 @@ public class LoadGenerationFragment extends Fragment implements View.OnClickList
             DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0002);
         }
     }
-
-
 
     // sending exception to the database
     public void logException() {
@@ -816,7 +804,6 @@ public class LoadGenerationFragment extends Fragment implements View.OnClickList
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Load generation");
     }
 
-
     @Override
     public void onDestroyView() {
 
@@ -935,13 +922,11 @@ public class LoadGenerationFragment extends Fragment implements View.OnClickList
                             ProgressDialogUtils.closeProgressDialog();
                         }
 
-
                     }
 
                     // response object fails
                     @Override
                     public void onFailure(Call<String> call, Throwable throwable) {
-
                         ProgressDialogUtils.closeProgressDialog();
                         DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0001);
                     }

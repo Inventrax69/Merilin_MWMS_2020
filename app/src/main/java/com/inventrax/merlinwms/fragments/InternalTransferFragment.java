@@ -252,7 +252,9 @@ public class InternalTransferFragment extends Fragment implements View.OnClickLi
 
 
         // To get tenants
-        getTenants();
+        //getTenants();
+
+        getWarehouse();
 
 
 
@@ -744,6 +746,9 @@ public class InternalTransferFragment extends Fragment implements View.OnClickLi
             message = common.SetAuthentication(EndpointConstants.HouseKeepingDTO, getContext());
             HouseKeepingDTO houseKeepingDTO = new HouseKeepingDTO();
             houseKeepingDTO.setAccountID(accountId);
+            houseKeepingDTO.setUserId(Userid);
+            houseKeepingDTO.setTenantID(tenantId);
+            houseKeepingDTO.setWarehouseId(whId);
             message.setEntityObject(houseKeepingDTO);
 
 
@@ -877,6 +882,7 @@ public class InternalTransferFragment extends Fragment implements View.OnClickLi
             message = common.SetAuthentication(EndpointConstants.HouseKeepingDTO, getContext());
             HouseKeepingDTO houseKeepingDTO = new HouseKeepingDTO();
             houseKeepingDTO.setAccountID(accountId);
+            houseKeepingDTO.setUserId(Userid);
             houseKeepingDTO.setTenantID(tenantId);
             message.setEntityObject(houseKeepingDTO);
 
@@ -1011,7 +1017,7 @@ public class InternalTransferFragment extends Fragment implements View.OnClickLi
                 tenantId = oHouseKeeping.getTenantID();   // Te
 
                 // get warehouses of selected tenant
-                getWarehouse();
+               // getWarehouse();
             }
         }
     }
@@ -1022,7 +1028,7 @@ public class InternalTransferFragment extends Fragment implements View.OnClickLi
             if (oHouseKeeping.getWarehouse().equals(selectedWH)) {
 
                 whId = oHouseKeeping.getWarehouseId();    // Warehouse Id of selected warehouse
-
+                getTenants();
             }
         }
     }

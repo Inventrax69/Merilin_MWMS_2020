@@ -1008,7 +1008,6 @@ public class GoodsInFragment extends Fragment implements View.OnClickListener, B
 
         try {
 
-
             WMSCoreMessage message = new WMSCoreMessage();
             message = common.SetAuthentication(EndpointConstants.Inbound, getContext());
             InboundDTO inboundDTO = new InboundDTO();
@@ -1121,7 +1120,8 @@ public class GoodsInFragment extends Fragment implements View.OnClickListener, B
                 ProgressDialogUtils.closeProgressDialog();
                 DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0001);
             }
-        } catch (Exception ex) {
+        }
+        catch (Exception ex) {
             try {
                 exceptionLoggerUtils.createExceptionLog(ex.toString(), classCode, "001_04", getActivity());
                 logException();
@@ -1131,6 +1131,7 @@ public class GoodsInFragment extends Fragment implements View.OnClickListener, B
             ProgressDialogUtils.closeProgressDialog();
             DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0003);
         }
+
     }
 
 /*    public void validateDock() {
@@ -1366,7 +1367,6 @@ public class GoodsInFragment extends Fragment implements View.OnClickListener, B
             DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0002);
         }
     }*/
-
 
     // for auto mode
     public void getReceivedQty() {

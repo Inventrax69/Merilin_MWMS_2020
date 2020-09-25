@@ -8,6 +8,9 @@ import java.util.Set;
 public class HouseKeepingDTO {
 
 
+
+    @SerializedName("UserId")
+    private String UserId;
     @SerializedName("AccountID")
     private String AccountID;
     @SerializedName("TenantName")
@@ -65,6 +68,11 @@ public class HouseKeepingDTO {
                 case "Result":
                     if (entry.getValue() != null) {
                         this.setResult(entry.getValue().toString());
+                    }
+                    break;
+                case "UserId":
+                    if (entry.getValue() != null) {
+                        this.setUserId(entry.getValue().toString());
                     }
                     break;
 
@@ -128,5 +136,13 @@ public class HouseKeepingDTO {
 
     public void setResult(String result) {
         Result = result;
+    }
+
+    public String getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(String userId) {
+        UserId = userId;
     }
 }
