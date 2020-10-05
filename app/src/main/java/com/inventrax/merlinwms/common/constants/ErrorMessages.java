@@ -145,4 +145,10 @@ public class ErrorMessages {
 
     public String EMC_083 = "Please close side menu";
 
+    public String EMC_084 = "No Stock Available";
+
+    public String EMC_085 = "Transfer Completed Successfully";
+
+    public String EMC_086 = "Error while transfer";
+
 }

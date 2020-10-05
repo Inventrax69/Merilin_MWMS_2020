@@ -53,13 +53,14 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
     private IntentFilter mIntentFilter;
     private CounterBroadcastReceiver counterBroadcastReceiver;
 
-    private String userName = "",scanType="";
+    private String userName = "",scanType="",UserRole="";
     List<String> listDataParent;
     HashMap<String, List<String>> listDataChild;
     ExpandableListView expandable_list_view;
     NewExpandableListAdapter.OnItemClick onItemClick;
 
     RelativeLayout rr;
+    boolean isSupervisor=false;
 
 
     public void setDrawerListener(FragmentDrawerListener listener) {
@@ -113,6 +114,11 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
 
         // Adding child data List three
         List<String> mainListHouseKeeping = new ArrayList<String>();
+
+        if(isSupervisor){
+            mainListHouseKeeping.add("Material Transfers");
+        }
+
         mainListHouseKeeping.add("Bin to Bin");
         mainListHouseKeeping.add("Live Stock");
         mainListHouseKeeping.add("Cycle Count");
@@ -171,6 +177,9 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
 
         // Adding child data List three
         List<String> mainListHouseKeeping = new ArrayList<String>();
+        if(isSupervisor){
+            mainListHouseKeeping.add("Material Transfers");
+        }
         mainListHouseKeeping.add("Bin to Bin");
         mainListHouseKeeping.add("Live Stock");
         mainListHouseKeeping.add("Cycle Count");
@@ -208,6 +217,23 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
             SharedPreferences sp = getContext().getSharedPreferences("LoginActivity", Context.MODE_PRIVATE);
             userName = sp.getString("UserName", "");
             scanType = sp.getString("scanType", "");
+            UserRole = sp.getString("UserRole", "");
+
+
+            if(!UserRole.isEmpty()){
+                String[] stringsUserRole=UserRole.split("[,]");
+                for (String s : stringsUserRole) {
+                    if (s.trim().equals("6") || s.trim().equals("11") ) {
+                        isSupervisor = true;
+                        break;
+                    } else {
+                        isSupervisor = false;
+                    }
+                }
+            }else{
+                isSupervisor=false;
+            }
+
 
             mIntentFilter = new IntentFilter();
             mIntentFilter.addAction("com.example.broadcast.counter");
@@ -414,7 +440,11 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
                 FragmentUtils.replaceFragmentWithBackStack(getActivity(), R.id.container_body, new OutboundRevertHeaderFragment());
             }
             break;
-            case "Bin to Bin": {
+            case "Material Transfers": {
+                FragmentUtils.replaceFragmentWithBackStack(getActivity(), R.id.container_body, new MaterialTransferFragment());
+            }
+            break;
+           case "Bin to Bin": {
                 FragmentUtils.replaceFragmentWithBackStack(getActivity(), R.id.container_body, new InternalTransferFragment());
             }
             break;

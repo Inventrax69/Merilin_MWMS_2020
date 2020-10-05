@@ -578,16 +578,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView, Adapt
 
                                     if (oProfileDto.getUserID() != null) {
                                         sharedPreferencesUtils.savePreference("RefUserId", oProfileDto.getUserID());
-
                                     }
+
                                     if (oProfileDto.getFirstName() != null) {
-
                                         sharedPreferencesUtils.savePreference("UserName", oProfileDto.getFirstName());
-
-
                                     }
-                                    if (oProfileDto.getAccountId() != null) {
 
+                                    if (oProfileDto.getAccountId() != null) {
                                         sharedPreferencesUtils.savePreference("AccountId", oProfileDto.getAccountId().split("[.]")[0]);
                                     }
 
@@ -597,6 +594,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView, Adapt
 
                                     if (oProfileDto.getTenantID() != null) {
                                         sharedPreferencesUtils.savePreference("TenantID", oProfileDto.getTenantID());
+                                    }
+
+                                    if (oProfileDto.getUserRole() != null) {
+                                        sharedPreferencesUtils.savePreference("UserRole", oProfileDto.getUserRole());
                                     }
 
                                 } catch (Exception ex) {

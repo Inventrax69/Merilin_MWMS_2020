@@ -30,16 +30,6 @@
                 android:weightSum="2">
 
                 <TextView
-                    android:id="@+id/tvSelectTenant"
-                    style="@style/textViewStyleSmall"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/selectTenant">
-
-                </TextView>
-
-                <TextView
                     android:id="@+id/tvSelectWH"
                     style="@style/textViewStyleSmall"
                     android:layout_width="0dp"
@@ -50,6 +40,18 @@
 
                 </TextView>
 
+                <TextView
+                    android:id="@+id/tvSelectTenant"
+                    style="@style/textViewStyleSmall"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/selectTenant">
+
+                </TextView>
+
+
+
             </LinearLayout>
 
             <LinearLayout
@@ -58,6 +60,15 @@
                 android:layout_weight="0.4"
                 android:orientation="horizontal"
                 android:weightSum="2">
+
+                <com.inventrax.merlinwms.searchableSpinner.SearchableSpinner
+                    android:id="@+id/spinnerSelectWH"
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="1">
+
+                </com.inventrax.merlinwms.searchableSpinner.SearchableSpinner>
 
 
                 <com.inventrax.merlinwms.searchableSpinner.SearchableSpinner
@@ -69,14 +80,7 @@
 
                 </com.inventrax.merlinwms.searchableSpinner.SearchableSpinner>
 
-                <com.inventrax.merlinwms.searchableSpinner.SearchableSpinner
-                    android:id="@+id/spinnerSelectWH"
-                    style="@style/Widget.AppCompat.Spinner.Underlined"
-                    android:layout_width="0dp"
-                    android:layout_height="35dp"
-                    android:layout_weight="1">
 
-                </com.inventrax.merlinwms.searchableSpinner.SearchableSpinner>
 
 
             </LinearLayout>

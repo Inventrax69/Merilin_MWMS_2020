@@ -227,6 +227,12 @@ public interface ApiInterface {
     @POST("Transfers/GetAvailbleQtyList")
     Call<String> GetAvailbleQtyList(@Body WMSCoreMessage oRequest);
 
+    @POST("Transfers/GetSLocWiseActiveStockInfo")
+    Call<String> GetSLocWiseActiveStockInfo(@Body WMSCoreMessage oRequest);
+
+    @POST("Transfers/UpdateMaterialTransfer")
+    Call<String> UpdateMaterialTransfer(@Body WMSCoreMessage oRequest);
+
     @POST("Transfers/GetBinToBinStorageLocations")
     Call<String> GetBinToBinStorageLocations(@Body WMSCoreMessage oRequest);
 

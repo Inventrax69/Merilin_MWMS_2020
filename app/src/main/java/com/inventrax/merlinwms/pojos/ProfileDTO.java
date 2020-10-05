@@ -94,6 +94,11 @@ public class ProfileDTO {
                         this.setWarehouseID((int)Double.parseDouble(entry.getValue().toString()));
                     }
                     break;
+                case "UserRole":
+                    if (entry.getValue() != null) {
+                        this.setUserRole(entry.getValue().toString());
+                    }
+                    break;
 
                 case "TenantID":
                     if (entry.getValue() != null) {

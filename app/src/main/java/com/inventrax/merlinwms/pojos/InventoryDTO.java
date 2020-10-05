@@ -18,7 +18,6 @@ public class InventoryDTO {
     @SerializedName("AccountID")
     private String AccountID;
 
-
     @SerializedName("ScanType")
     private EndpointConstants.ScanType scanType;
     @SerializedName("MaterialCode")
@@ -87,8 +86,10 @@ public class InventoryDTO {
     private boolean UserConfirmedExcessTransaction;
     @SerializedName("UserConfirmReDo")
     private boolean UserConfirmReDo;
+
     @SerializedName("SuggestionID")
     private String SuggestionID;
+
     @SerializedName("BatchNumber")
     private String batchNumber;
 
@@ -106,7 +107,6 @@ public class InventoryDTO {
 
     @SerializedName("AccountId")
     private String accountId;
-
 
     @SerializedName("TransferRefId")
     private String transferRefId;
@@ -134,7 +134,6 @@ public class InventoryDTO {
     @SerializedName("TenantCode")
     private String TenantCode;
 
-
     @SerializedName("HasDisp")
     private String HasDisp;
 
@@ -147,7 +146,14 @@ public class InventoryDTO {
     @SerializedName("WarehouseId")
     private String WarehouseId;
 
+    @SerializedName("StorageLocation")
+    private String StorageLocation;
 
+    @SerializedName("ToStorageLocation")
+    private String ToStorageLocation;
+
+
+    private boolean isChecked=false;
 
     public InventoryDTO() {
 
@@ -408,6 +414,17 @@ public class InventoryDTO {
                 case "WarehouseId":
                     if (entry.getValue() != null) {
                         this.setWarehouseId(entry.getValue().toString());
+                    }
+                    break;
+                case "StorageLocation":
+                    if (entry.getValue() != null) {
+                        this.setStorageLocation(entry.getValue().toString());
+                    }
+                    break;
+
+                case "ToStorageLocation":
+                    if (entry.getValue() != null) {
+                        this.setToStorageLocation(entry.getValue().toString());
                     }
                     break;
 
@@ -857,4 +874,30 @@ public class InventoryDTO {
     public void setWarehouseId(String warehouseId) {
         WarehouseId = warehouseId;
     }
+
+    public String getStorageLocation() {
+        return StorageLocation;
+    }
+
+    public void setStorageLocation(String storageLocation) {
+        StorageLocation = storageLocation;
+    }
+
+    public String getToStorageLocation() {
+        return ToStorageLocation;
+    }
+
+    public void setToStorageLocation(String toStorageLocation) {
+        ToStorageLocation = toStorageLocation;
+    }
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
+    }
+
+
 }

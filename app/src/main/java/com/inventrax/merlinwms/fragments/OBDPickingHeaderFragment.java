@@ -343,9 +343,9 @@ public class OBDPickingHeaderFragment extends Fragment implements View.OnClickLi
 
                             WMSExceptionMessage owmsExceptionMessage = null;
                             for (int i = 0; i < _lExceptions.size(); i++) {
-
                                 owmsExceptionMessage = new WMSExceptionMessage(_lExceptions.get(i).entrySet());
                             }
+
                             isValidSO=false;
                             cvScanSONumber.setCardBackgroundColor(getResources().getColor(R.color.white));
                             ivScanSONumber.setImageResource(R.drawable.warning_img);
@@ -524,7 +524,6 @@ public class OBDPickingHeaderFragment extends Fragment implements View.OnClickLi
 
                             ProgressDialogUtils.closeProgressDialog();
 
-
                         } catch (Exception ex) {
                             try {
                                 exceptionLoggerUtils.createExceptionLog(ex.toString(), classCode, "001_02", getActivity());
@@ -570,6 +569,7 @@ public class OBDPickingHeaderFragment extends Fragment implements View.OnClickLi
 
 
     public void LoadPickRefnos() {
+
         try {
             WMSCoreMessage message = new WMSCoreMessage();
             message = common.SetAuthentication(EndpointConstants.Outbound, getContext());
@@ -580,9 +580,9 @@ public class OBDPickingHeaderFragment extends Fragment implements View.OnClickLi
 
             Call<String> call = null;
             ApiInterface apiService = RestService.getClient().create(ApiInterface.class);
-            try {
 
-                //Checking for Internet Connectivity
+            try {
+                // Checking for Internet Connectivity
                 // if (NetworkUtils.isInternetAvailable()) {
                 // Calling the Interface method
                 ProgressDialogUtils.showProgressDialog("Please Wait");
@@ -591,6 +591,7 @@ public class OBDPickingHeaderFragment extends Fragment implements View.OnClickLi
                 // DialogUtils.showAlertDialog(getActivity(), "Please enable internet");
                 // return;
                 // }
+
             } catch (Exception ex) {
                 try {
                     exceptionLoggerUtils.createExceptionLog(ex.toString(), classCode, "001_01", getActivity());

@@ -6,16 +6,18 @@ android {
     lintOptions {
         abortOnError false
     }
+
     defaultConfig {
         applicationId "com.inventrax.merlinwms"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.2-alpha"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
     }
+
     signingConfigs {
         release {
             storeFile file('merlin.jks')
@@ -24,6 +26,7 @@ android {
             keyPassword '123456'
         }
     }
+
     buildTypes {
         release {
             signingConfig signingConfigs.release
@@ -31,13 +34,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     // add dexOptions
     dexOptions {
         javaMaxHeapSize "4g"
     }
+
     packagingOptions {
         exclude 'android/support/annotation/StyleRes.class'
     }
+
 }
 
 repositories {

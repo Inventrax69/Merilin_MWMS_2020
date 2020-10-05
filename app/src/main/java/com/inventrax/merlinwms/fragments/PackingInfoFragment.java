@@ -238,7 +238,9 @@ public class PackingInfoFragment extends Fragment implements View.OnClickListene
         });
 
         // To get Tenants
-        getTenants();
+      //  getTenants();
+
+        getWarehouse();
 
 
         radioSONumber.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -304,7 +306,7 @@ public class PackingInfoFragment extends Fragment implements View.OnClickListene
 
                 tenantId = oHouseKeeping.getTenantID();
 
-                getWarehouse();
+                //getWarehouse();
             }
         }
     }
@@ -317,6 +319,7 @@ public class PackingInfoFragment extends Fragment implements View.OnClickListene
             if (oHouseKeeping.getWarehouse().equals(selectedWH)) {
 
                 warehouseId = oHouseKeeping.getWarehouseId();
+                getTenants();
 
             }
         }
@@ -462,6 +465,8 @@ public class PackingInfoFragment extends Fragment implements View.OnClickListene
             message = common.SetAuthentication(EndpointConstants.HouseKeepingDTO, getContext());
             HouseKeepingDTO houseKeepingDTO = new HouseKeepingDTO();
             houseKeepingDTO.setAccountID(accountId);
+            houseKeepingDTO.setUserId(userId);
+            houseKeepingDTO.setWarehouseId(warehouseId);
             message.setEntityObject(houseKeepingDTO);
 
 
@@ -596,6 +601,7 @@ public class PackingInfoFragment extends Fragment implements View.OnClickListene
             HouseKeepingDTO houseKeepingDTO = new HouseKeepingDTO();
             houseKeepingDTO.setAccountID(accountId);
             houseKeepingDTO.setTenantID(tenantId);
+            houseKeepingDTO.setUserId(userId);
             message.setEntityObject(houseKeepingDTO);
 
 

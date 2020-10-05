@@ -345,7 +345,7 @@ public class NewLoadSheetFragment extends Fragment implements View.OnClickListen
             ApiInterface apiService = RestService.getClient().create(ApiInterface.class);
 
             try {
-                //Checking for Internet Connectivity
+                // Checking for Internet Connectivity
                 // if (NetworkUtils.isInternetAvailable()) {
                 // Calling the Interface method
                 call = apiService.UpsertLoadDetails(message);
@@ -415,15 +415,7 @@ public class NewLoadSheetFragment extends Fragment implements View.OnClickListen
                                     }
                                 }
 
-
-
                                 ProgressDialogUtils.closeProgressDialog();
-
-
-
-
-
-
 
                             }
 
@@ -779,6 +771,7 @@ public class NewLoadSheetFragment extends Fragment implements View.OnClickListen
             message = common.SetAuthentication(EndpointConstants.Outbound, getContext());
             OutbountDTO outbountDTO = new OutbountDTO();
             outbountDTO.setTenatID(userId);
+            outbountDTO.setUserId(userId);
             outbountDTO.setAccountID(accountId);
             message.setEntityObject(outbountDTO);
 
