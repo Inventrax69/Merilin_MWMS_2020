@@ -703,7 +703,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView, Adapt
                                     if (entry.getKey().equals("Result")) {
                                         String Result = entry.getValue();
                                         if (Result.equals("0")) {
-
                                             return;
                                         } else {
                                             exceptionLoggerUtils.deleteFile(LoginActivity.this);

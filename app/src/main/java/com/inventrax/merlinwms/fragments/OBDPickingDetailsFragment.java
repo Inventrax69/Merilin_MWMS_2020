@@ -281,7 +281,6 @@ public class OBDPickingDetailsFragment extends Fragment implements View.OnClickL
                                 common.showUserDefinedAlertType(errorMessages.EMC_0028, getActivity(), getContext(), "Error");
                                 return;
                             }
-
                             return;
                         }
                     }
@@ -675,7 +674,6 @@ public class OBDPickingDetailsFragment extends Fragment implements View.OnClickL
 
                             WMSExceptionMessage owmsExceptionMessage = null;
                             for (int i = 0; i < _lExceptions.size(); i++) {
-
                                 owmsExceptionMessage = new WMSExceptionMessage(_lExceptions.get(i).entrySet());
                             }
                             isRSNScanned=false;
@@ -702,15 +700,16 @@ public class OBDPickingDetailsFragment extends Fragment implements View.OnClickL
                                     if(scanDTO1.getSkuCode().equalsIgnoreCase(lblSKuNo.getText().toString().trim())){
 
                                         if((lblBatchNo.getText().toString().equalsIgnoreCase(scanDTO1.getBatch()) || scanDTO1.getBatch()==null
-                                                || scanDTO1.getBatch().equalsIgnoreCase("") || scanDTO1.getBatch().isEmpty() )&&
+                                                || scanDTO1.getBatch().equalsIgnoreCase("") || scanDTO1.getBatch().isEmpty())&&
                                                 lblserialNo.getText().toString().equalsIgnoreCase(scanDTO1.getSerialNumber()) &&
                                                 lblMfgDate.getText().toString().equalsIgnoreCase(scanDTO1.getMfgDate()) &&
-                                                lblExpDate.getText().toString().equalsIgnoreCase(scanDTO1.getExpDate())
+                                                lblExpDate.getText().toString().equalsIgnoreCase(scanDTO1.getExpDate()) &&
+                                                lblProjectRefNo.getText().toString().equalsIgnoreCase(scanDTO1.getPrjRef())
                                         ) {
 
-/*                                             &&
-                                              lblMfgDate.getText().toString().equalsIgnoreCase(scanDTO1.getMfgDate()) &&
-                                                    lblExpDate.getText().toString().equalsIgnoreCase(scanDTO1.getExpDate()
+/*                                           &&
+                                             lblMfgDate.getText().toString().equalsIgnoreCase(scanDTO1.getMfgDate()) &&
+                                             lblExpDate.getText().toString().equalsIgnoreCase(scanDTO1.getExpDate()
                                              lblProjectRefNo.getText().toString().equalsIgnoreCase(scanDTO1.getPrjRef())*/
 
 

@@ -151,4 +151,6 @@ public class ErrorMessages {
 
     public String EMC_086 = "Error while transfer";
 
+    public String EMC_087 = "Please Scan To Container";
+
 }

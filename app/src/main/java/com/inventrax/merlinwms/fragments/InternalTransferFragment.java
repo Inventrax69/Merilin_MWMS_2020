@@ -13,9 +13,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -36,6 +38,7 @@ import com.honeywell.aidc.ScannerUnavailableException;
 import com.honeywell.aidc.TriggerStateChangeEvent;
 import com.honeywell.aidc.UnsupportedPropertyException;
 import com.inventrax.merlinwms.R;
+import com.inventrax.merlinwms.activities.MainActivity;
 import com.inventrax.merlinwms.common.Common;
 import com.inventrax.merlinwms.common.constants.EndpointConstants;
 import com.inventrax.merlinwms.common.constants.ErrorMessages;
@@ -250,6 +253,18 @@ public class InternalTransferFragment extends Fragment implements View.OnClickLi
             }
         });
 
+        etQty.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEND) {
+                    MainActivity mainActivity=(MainActivity)getActivity();
+                    mainActivity.barcode="";
+                    return  true;
+                }
+                return false;
+            }
+        });
+
 
         // To get tenants
         //getTenants();
@@ -300,7 +315,11 @@ public class InternalTransferFragment extends Fragment implements View.OnClickLi
 
                                 if (!etQty.getText().toString().equals("0") || !etQty.getText().toString().equals("")) {
 
-                                    UpsertBinToBinTransfer();
+                                    if(!etPalletTo.getText().toString().equals("")){
+                                        UpsertBinToBinTransfer();
+                                    }else{
+                                        common.showUserDefinedAlertType(errorMessages.EMC_087, getActivity(), getContext(), "Error");
+                                    }
 
                                 } else {
                                     common.showUserDefinedAlertType(errorMessages.EMC_0068, getActivity(), getContext(), "Error");

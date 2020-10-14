@@ -141,7 +141,6 @@ public class NewLoadSheetFragment extends Fragment implements View.OnClickListen
         accountId = sp.getString("AccountId", "");
 
         soundUtils = new SoundUtils();
-
         exceptionLoggerUtils = new ExceptionLoggerUtils();
         errorMessages = new ErrorMessages();
 

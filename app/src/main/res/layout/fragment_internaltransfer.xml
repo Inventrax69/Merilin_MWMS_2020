@@ -470,7 +470,7 @@
                         android:layout_height="match_parent"
                         android:enabled="false"
                         android:hint="@string/availableQty"
-                        android:inputType="text"
+                        android:inputType="number"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>

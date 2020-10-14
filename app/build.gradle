@@ -11,8 +11,8 @@ android {
         applicationId "com.inventrax.merlinwms"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 3
-        versionName "1.2-alpha"
+        versionCode 5
+        versionName "1.4-alpha"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true

@@ -547,6 +547,7 @@ public class OutboundRevertDetailsFragment extends Fragment implements View.OnCl
                                     lblMfgDate.setText(scanDTO1.getMfgDate());
                                     lblExpDate.setText(scanDTO1.getExpDate());
                                     lblProjectRefNo.setText(scanDTO1.getPrjRef());
+                                    lblMRP.setText(scanDTO1.getMrp());
 
                                     GetScanqtyvalidation("1");
 
@@ -765,6 +766,7 @@ public class OutboundRevertDetailsFragment extends Fragment implements View.OnCl
             outbountDTO.setExpDate(lblExpDate.getText().toString());
             outbountDTO.setProjectNo(lblProjectRefNo.getText().toString());
             outbountDTO.setCartonSerialNo(etCarton.getText().toString());
+            outbountDTO.setMRP(lblMRP.getText().toString());
 
             message.setEntityObject(outbountDTO);
 
@@ -968,6 +970,7 @@ public class OutboundRevertDetailsFragment extends Fragment implements View.OnCl
             outbountDTO.setProjectNo(lblProjectRefNo.getText().toString());
             outbountDTO.setPackedQty(lblReceivedQty.getText().toString());
             outbountDTO.setCartonSerialNo(etCarton.getText().toString());
+            outbountDTO.setMRP(lblMRP.getText().toString());
             message.setEntityObject(outbountDTO);
 
             Call<String> call = null;

@@ -35,6 +35,7 @@ import com.inventrax.merlinwms.fragments.LiveStockFragment;
 import com.inventrax.merlinwms.fragments.LoadGenerationFragment;
 import com.inventrax.merlinwms.fragments.LoadSheetFragment;
 import com.inventrax.merlinwms.fragments.LoadingFragment;
+import com.inventrax.merlinwms.fragments.MaterialTransferFragment;
 import com.inventrax.merlinwms.fragments.NewLoadSheetFragment;
 import com.inventrax.merlinwms.fragments.OBDPickingDetailsFragment;
 import com.inventrax.merlinwms.fragments.OBDPickingHeaderFragment;
@@ -228,6 +229,9 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
                 }
                 if (fragment != null && fragment.isVisible() && fragment instanceof OutboundRevertDetailsFragment) {
                     ((OutboundRevertDetailsFragment) fragment).myScannedData(MainActivity.this, ScannedData);
+                }
+                if (fragment != null && fragment.isVisible() && fragment instanceof MaterialTransferFragment) {
+                    ((MaterialTransferFragment) fragment).myScannedData(MainActivity.this, ScannedData);
                 }
             }
         }
